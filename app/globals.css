@@ -1,37 +1,42 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap");
 @import "tailwindcss";
 
-/* ── Brand Design Tokens (DC-2) ─────────────────────────────── */
+/* ── Brand Design Tokens — Sage · Olive · Tosca (DC-2) ──────── */
 @theme inline {
-  /* Palette — warm craft aesthetic */
-  --color-cream-50:  #fefdf8;
-  --color-cream-100: #fdf8ed;
-  --color-cream-200: #f9efd4;
-  --color-cream-300: #f3e0b0;
-  --color-cream-400: #e8c97a;
+  /* Palette — sage/olive/tosca natural craft aesthetic */
 
-  --color-terra-100: #fce9e0;
-  --color-terra-200: #f4c9b4;
-  --color-terra-300: #e8a88a;
-  --color-terra-400: #d4836a;
-  --color-terra-500: #c0644a;
-  --color-terra-600: #a84e38;
-  --color-terra-700: #8b3a28;
+  /* "cream" → light sage tints (backgrounds & borders) */
+  --color-cream-50:  #f3f8f2;
+  --color-cream-100: #e8f2e6;
+  --color-cream-200: #cfe3cc;
+  --color-cream-300: #adc9a9;
+  --color-cream-400: #82a87d;
 
-  --color-warm-50:  #faf6f3;
-  --color-warm-100: #f2e8e0;
-  --color-warm-200: #dfc9b8;
-  --color-warm-300: #c9a890;
-  --color-warm-400: #b08060;
-  --color-warm-500: #8b5e42;
-  --color-warm-600: #6b4230;
-  --color-warm-700: #4d2e1e;
-  --color-warm-800: #321d10;
-  --color-warm-900: #1a0e06;
+  /* "terra" → tosca/teal (primary CTA, badges, accents) */
+  --color-terra-100: #d0f0ed;
+  --color-terra-200: #9edcd7;
+  --color-terra-300: #64c2bb;
+  --color-terra-400: #34a89f;
+  --color-terra-500: #138d84;
+  --color-terra-600: #0a716a;
+  --color-terra-700: #065550;
 
-  --color-sage-100: #e8f0e4;
-  --color-sage-300: #9fb898;
-  --color-sage-500: #5a7a52;
+  /* "warm" → olive/dark green (text & footer) */
+  --color-warm-50:  #f5f7f0;
+  --color-warm-100: #e8edde;
+  --color-warm-200: #cdd8b8;
+  --color-warm-300: #abbe8e;
+  --color-warm-400: #85a062;
+  --color-warm-500: #637d42;
+  --color-warm-600: #4c6030;
+  --color-warm-700: #384720;
+  --color-warm-800: #263114;
+  --color-warm-900: #151c0a;
+
+  /* sage extras */
+  --color-sage-100: #dceeda;
+  --color-sage-300: #8cbd87;
+  --color-sage-500: #4a8040;
 
   /* Fonts */
   --font-display: "Playfair Display", Georgia, serif;
@@ -77,6 +82,6 @@ h1, h2, h3, h4 {
 }
 
 /* ── Status badge colors ─────────────────────────────────────── */
-.badge-ready      { background-color: #d1fae5; color: #065f46; }
-.badge-pre_order  { background-color: #fef3c7; color: #92400e; }
+.badge-ready      { background-color: #d0f0ed; color: #065550; }
+.badge-pre_order  { background-color: #dceeda; color: #384720; }
 .badge-sold_out   { background-color: #fee2e2; color: #991b1b; }
