@@ -42,7 +42,6 @@ export default function Navbar() {
         {/* Nav links */}
         <div className="flex items-center gap-1">
           {[
-            { href: "/", label: "Beranda" },
             { href: "/produk", label: "Katalog" },
           ].map(({ href, label }) => {
             const isActive = pathname === href;
