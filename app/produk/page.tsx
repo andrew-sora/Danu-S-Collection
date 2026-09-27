@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { getProducts } from "@/lib/products";
 import CategoryTabs from "@/components/CategoryTabs";
 
-export const revalidate = 3600; // ISR: revalidasi per jam
+export const revalidate = 300; // ISR: 5 menit
 
 export const metadata: Metadata = {
   title: "Katalog Produk",

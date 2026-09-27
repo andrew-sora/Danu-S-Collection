@@ -6,7 +6,7 @@ import { getProducts } from "@/lib/products";
 import { formatHarga } from "@/lib/whatsapp";
 import Link from "next/link";
 
-export const revalidate = 3600; // ISR: revalidasi per jam
+export const revalidate = 300; // ISR: 5 menit
 
 export const metadata: Metadata = {
   title: "Danu's Collection — Kerajinan Tangan Batam",

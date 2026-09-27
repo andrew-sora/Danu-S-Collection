@@ -16,7 +16,7 @@ export async function getProducts(): Promise<Product[]> {
 
   try {
     const res = await fetch(SHEET_CSV_URL, {
-      next: { revalidate: 3600 }, // ISR: revalidasi setiap 1 jam
+      next: { revalidate: 300 }, // ISR: revalidasi setiap 5 menit (safety net)
     });
 
     if (!res.ok) {
