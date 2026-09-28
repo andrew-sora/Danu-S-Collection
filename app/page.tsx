@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import CategoryTeaser from "@/components/CategoryTeaser";
+import ProductCard from "@/components/ProductCard";
 import { getProducts } from "@/lib/products";
 import { formatHarga } from "@/lib/whatsapp";
 import Link from "next/link";
@@ -52,28 +53,9 @@ export default async function HomePage() {
               </Link>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {featuredProducts.map((product) => (
-                <article
-                  key={product.id}
-                  className="
-                    flex flex-col rounded-2xl overflow-hidden
-                    bg-[var(--color-cream-50)] border border-[var(--color-cream-200)]
-                    hover:shadow-lg transition-all duration-300 hover:-translate-y-1
-                  "
-                >
-                  <div className="aspect-square bg-[var(--color-cream-100)] flex items-center justify-center">
-                    <span className="text-4xl">🛍️</span>
-                  </div>
-                  <div className="p-3 flex flex-col gap-1">
-                    <p className="text-xs font-semibold text-[var(--color-warm-800)] line-clamp-2 leading-snug">
-                      {product.nama}
-                    </p>
-                    <p className="text-sm font-bold text-[var(--color-terra-600)]">
-                      {formatHarga(product.harga)}
-                    </p>
-                  </div>
-                </article>
+                <ProductCard key={product.id} product={product} />
               ))}
             </div>
 
@@ -95,30 +77,51 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* Brand story section */}
-      <section className="px-5 py-14 bg-[var(--color-cream-100)]">
-        <div className="max-w-2xl mx-auto text-center flex flex-col gap-6">
-          <span className="text-5xl">🧵</span>
-          <h2 className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-warm-800)]">
-            Dibuat dengan Tangan, Dikirim dengan Hati
-          </h2>
-          <p className="text-[var(--color-warm-600)] leading-relaxed">
-            Setiap produk Danu&apos;s Collection dikerjakan sendiri di Batam dengan
-            bahan-bahan pilihan. Tidak ada mesin, tidak ada produksi massal —
-            hanya keahlian tangan dan dedikasi untuk setiap detail kecil.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mt-2">
-            {[
-              { icon: "🏠", label: "Home-based", desc: "Dikerjakan di rumah" },
-              { icon: "✂️", label: "Handmade", desc: "100% buatan tangan" },
-              { icon: "📦", label: "Made to order", desc: "Bisa request khusus" },
-            ].map(({ icon, label, desc }) => (
-              <div key={label} className="flex flex-col items-center gap-1">
-                <span className="text-3xl">{icon}</span>
-                <p className="font-semibold text-sm text-[var(--color-warm-700)]">{label}</p>
-                <p className="text-xs text-[var(--color-warm-400)]">{desc}</p>
+      {/* Brand story section dengan gambar Workshop Mama */}
+      <section className="px-5 py-16 bg-[var(--color-cream-100)] border-t border-[var(--color-cream-200)]">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          {/* Foto Workshop Mama */}
+          <div className="lg:col-span-6 relative flex justify-center">
+            <div className="relative w-full aspect-[16/10] rounded-3xl overflow-hidden shadow-xl border-4 border-white">
+              <img
+                src="/images/story-mama.jpg"
+                alt="Proses Pembuatan Kerajinan Danu's Collection"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 text-white text-xs font-semibold px-3 py-1.5 rounded-lg bg-black/40 backdrop-blur-md">
+                📍 Workshop Rumahan di Batam
               </div>
-            ))}
+            </div>
+          </div>
+
+          {/* Cerita Mama */}
+          <div className="lg:col-span-6 flex flex-col gap-4 text-center lg:text-left">
+            <span className="text-xs font-semibold uppercase tracking-widest text-[var(--color-terra-500)]">
+              🧵 Cerita Danu&apos;s Collection
+            </span>
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-warm-800)] leading-tight">
+              Dibuat dengan Tangan, Dikirim dengan Hati
+            </h2>
+            <p className="text-[var(--color-warm-600)] text-sm leading-relaxed">
+              Setiap produk Danu&apos;s Collection dikerjakan sendiri oleh Mama di Batam dengan
+              kain & bahan-bahan pilihan. Tanpa mesin pabrik massal —
+              hanya keahlian tangan, ketelitian, dan kasih sayang dalam setiap jahitan.
+            </p>
+
+            <div className="grid grid-cols-3 gap-3 mt-3 pt-4 border-t border-[var(--color-cream-300)]">
+              {[
+                { icon: "🏠", label: "Home-based", desc: "Usaha rumahan" },
+                { icon: "✂️", label: "Handmade", desc: "100% buatan tangan" },
+                { icon: "📦", label: "Kirim se-Indo", desc: "Dari Batam" },
+              ].map(({ icon, label, desc }) => (
+                <div key={label} className="flex flex-col items-center lg:items-start gap-0.5">
+                  <span className="text-2xl">{icon}</span>
+                  <p className="font-semibold text-xs text-[var(--color-warm-800)]">{label}</p>
+                  <p className="text-[11px] text-[var(--color-warm-500)]">{desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -31,29 +31,28 @@ export default function ProductCard({ product }: Props) {
     >
       {/* Foto Produk */}
       <div className="relative aspect-square overflow-hidden bg-[var(--color-cream-100)]">
-        {product.fotoUrl ? (
-          <Image
-            src={product.fotoUrl}
-            alt={product.nama}
-            fill
-            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            className={`
-              object-cover transition-transform duration-500
-              group-hover:scale-105
-              ${isSoldOut ? "grayscale" : ""}
-            `}
-            onError={(e) => {
-              // Fallback: sembunyikan gambar jika error, tampil placeholder
-              (e.target as HTMLImageElement).style.display = "none";
-            }}
-          />
-        ) : (
-          /* DC-6: Placeholder saat foto kosong */
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-            <span className="text-4xl">🛍️</span>
-            <span className="text-xs text-[var(--color-warm-400)]">Foto segera hadir</span>
-          </div>
-        )}
+        <Image
+          src={
+            product.fotoUrl ||
+            (product.kategori === "sarung_bantal"
+              ? "/images/category-bantal.jpg"
+              : product.kategori === "bandana"
+              ? "/images/category-bandana.jpg"
+              : product.kategori === "taplak_meja"
+              ? "/images/category-taplak.jpg"
+              : product.kategori === "bunga_hidup"
+              ? "/images/category-bunga.jpg"
+              : "/images/hero-craft.jpg")
+          }
+          alt={product.nama}
+          fill
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          className={`
+            object-cover transition-transform duration-500
+            group-hover:scale-105
+            ${isSoldOut ? "grayscale" : ""}
+          `}
+        />
 
         {/* Status Badge — overlay di pojok kiri atas */}
         <span

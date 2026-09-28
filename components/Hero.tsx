@@ -21,80 +21,109 @@ export default function Hero() {
         className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-[var(--color-cream-400)] opacity-40 blur-2xl"
       />
 
-      <div className="relative z-10 flex flex-col items-center gap-6 max-w-lg mx-auto">
+      <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        {/* Kolom Teks (Left) */}
+        <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left gap-6">
 
-        {/* Tag label */}
-        <span className="
-          inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full
-          bg-[var(--color-terra-100)] text-[var(--color-terra-600)]
-          text-xs font-semibold uppercase tracking-widest
-          border border-[var(--color-terra-200)]
-        ">
-          🏷️ Kerajinan Tangan Batam
-        </span>
+          {/* Tag label */}
+          <span className="
+            inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full
+            bg-[var(--color-terra-100)] text-[var(--color-terra-600)]
+            text-xs font-semibold uppercase tracking-widest
+            border border-[var(--color-terra-200)]
+          ">
+            🏷️ Kerajinan Tangan Batam
+          </span>
 
-        {/* Heading utama */}
-        <h1 className="
-          font-display text-4xl sm:text-5xl font-bold
-          text-[var(--color-warm-800)] leading-tight
-        ">
-          Danu&apos;s{" "}
-          <span className="italic text-[var(--color-terra-500)]">Collection</span>
-        </h1>
+          {/* Heading utama */}
+          <h1 className="
+            font-display text-4xl sm:text-5xl lg:text-6xl font-bold
+            text-[var(--color-warm-800)] leading-tight
+          ">
+            Danu&apos;s{" "}
+            <span className="italic text-[var(--color-terra-500)]">Collection</span>
+          </h1>
 
-        {/* Hang-tag visual — dekorasi teks */}
-        <div className="
-          flex items-center gap-3 px-5 py-3 rounded-2xl
-          bg-white/70 backdrop-blur-sm border border-[var(--color-cream-300)]
-          shadow-sm
-        ">
-          <span className="text-2xl">🧵</span>
-          <p className="text-sm text-[var(--color-warm-600)] font-medium leading-snug text-left">
-            Dibuat dengan tangan penuh kasih<br />
-            dari Batam untuk seluruh Indonesia
+          {/* Hang-tag visual — dekorasi teks */}
+          <div className="
+            flex items-center gap-3 px-5 py-3 rounded-2xl
+            bg-white/80 backdrop-blur-sm border border-[var(--color-cream-300)]
+            shadow-sm max-w-md
+          ">
+            <span className="text-2xl">🧵</span>
+            <p className="text-sm text-[var(--color-warm-600)] font-medium leading-snug text-left">
+              Dibuat dengan tangan penuh kasih<br />
+              dari Batam untuk seluruh Indonesia
+            </p>
+          </div>
+
+          {/* Brand story singkat */}
+          <p className="text-base text-[var(--color-warm-600)] leading-relaxed max-w-lg">
+            Sarung bantal, bandana, taplak meja, dan kerajinan cantik lainnya —
+            semua dikerjakan sendiri dengan detail, estetika, dan kehangatan karya rumahan.
           </p>
+
+          {/* CTA buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto mt-2">
+            <Link
+              href="/produk"
+              id="hero-cta-catalog"
+              className="
+                flex items-center justify-center gap-2
+                px-6 py-3.5 rounded-xl
+                bg-[var(--color-terra-500)] hover:bg-[var(--color-terra-600)]
+                text-white font-semibold text-sm
+                transition-all duration-200
+                hover:shadow-lg hover:shadow-[var(--color-terra-300)]
+                hover:-translate-y-0.5
+              "
+            >
+              🛍️ Lihat Katalog
+            </Link>
+
+            <a
+              href={`https://wa.me/${process.env.NEXT_PUBLIC_WA_NUMBER}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              id="hero-cta-wa"
+              className="
+                flex items-center justify-center gap-2
+                px-6 py-3.5 rounded-xl
+                bg-white hover:bg-[var(--color-cream-100)]
+                text-[var(--color-warm-700)] font-semibold text-sm
+                border border-[var(--color-cream-300)]
+                transition-all duration-200 hover:-translate-y-0.5
+              "
+            >
+              💬 Tanya via WhatsApp
+            </a>
+          </div>
         </div>
 
-        {/* Brand story singkat */}
-        <p className="text-base text-[var(--color-warm-600)] leading-relaxed max-w-sm">
-          Sarung bantal, bandana, taplak meja, dan kerajinan cantik lainnya —
-          semua dikerjakan sendiri dengan detail dan cinta.
-        </p>
-
-        {/* CTA buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto mt-2">
-          <Link
-            href="/produk"
-            id="hero-cta-catalog"
-            className="
-              flex items-center justify-center gap-2
-              px-6 py-3.5 rounded-xl
-              bg-[var(--color-terra-500)] hover:bg-[var(--color-terra-600)]
-              text-white font-semibold text-sm
-              transition-all duration-200
-              hover:shadow-lg hover:shadow-[var(--color-terra-300)]
-              hover:-translate-y-0.5
-            "
-          >
-            🛍️ Lihat Katalog
-          </Link>
-
-          <a
-            href={`https://wa.me/${process.env.NEXT_PUBLIC_WA_NUMBER}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            id="hero-cta-wa"
-            className="
-              flex items-center justify-center gap-2
-              px-6 py-3.5 rounded-xl
-              bg-white hover:bg-[var(--color-cream-100)]
-              text-[var(--color-warm-700)] font-semibold text-sm
-              border border-[var(--color-cream-300)]
-              transition-all duration-200 hover:-translate-y-0.5
-            "
-          >
-            💬 Tanya via WhatsApp
-          </a>
+        {/* Kolom Visual (Right) */}
+        <div className="lg:col-span-5 relative flex justify-center w-full">
+          <div className="
+            relative w-full max-w-md aspect-[4/3] rounded-3xl overflow-hidden
+            shadow-2xl border-4 border-white/80
+            transform lg:rotate-2 hover:rotate-0 transition-transform duration-500 group
+          ">
+            <img
+              src="/images/hero-craft.jpg"
+              alt="Koleksi Kerajinan Tangan Danu's Collection"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80" />
+            
+            {/* Overlay badge pada gambar */}
+            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white text-xs font-medium px-4 py-2.5 rounded-xl bg-white/20 backdrop-blur-md border border-white/30">
+              <span className="flex items-center gap-1.5 font-semibold">
+                ✨ 100% Hand-made Produk
+              </span>
+              <span className="bg-white/90 text-[var(--color-warm-800)] px-2 py-0.5 rounded-md font-bold text-[10px] uppercase">
+                Batam
+              </span>
+            </div>
+          </div>
         </div>
       </div>
 

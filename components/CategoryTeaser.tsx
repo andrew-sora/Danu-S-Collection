@@ -36,46 +36,53 @@ export default function CategoryTeaser() {
       </div>
 
       {/* Category Cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-        {ALL_CATEGORIES.map((cat, i) => (
-          <Link
-            key={cat}
-            href={`/produk`}
-            id={`category-teaser-${cat}`}
-            aria-label={`Lihat produk kategori ${CATEGORY_LABELS[cat]}`}
-            className={`
-              group relative flex flex-col items-center justify-center
-              gap-2 p-5 rounded-2xl text-center
-              bg-gradient-to-br ${CATEGORY_COLORS[cat]}
-              border border-[var(--color-cream-200)]
-              hover:border-[var(--color-terra-300)]
-              hover:shadow-lg transition-all duration-300
-              hover:-translate-y-1
-              ${i === 4 ? "col-span-2 sm:col-span-1" : ""}
-            `}
-          >
-            <span
-              className="text-4xl transition-transform duration-300 group-hover:scale-110"
-              aria-hidden="true"
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+        {[
+          { cat: "sarung_bantal", img: "/images/category-bantal.jpg" },
+          { cat: "bandana", img: "/images/category-bandana.jpg" },
+          { cat: "taplak_meja", img: "/images/category-taplak.jpg" },
+          { cat: "bunga_hidup", img: "/images/category-bunga.jpg" },
+          { cat: "kerajinan_lain", img: "/images/hero-craft.jpg" },
+        ].map(({ cat, img }, i) => {
+          const catKey = cat as ProductCategory;
+          return (
+            <Link
+              key={catKey}
+              href={`/produk`}
+              id={`category-teaser-${catKey}`}
+              aria-label={`Lihat produk kategori ${CATEGORY_LABELS[catKey]}`}
+              className={`
+                group relative flex flex-col justify-end
+                h-48 sm:h-56 p-4 rounded-2xl overflow-hidden
+                shadow-md hover:shadow-xl transition-all duration-300
+                hover:-translate-y-1 border border-[var(--color-cream-300)]
+                ${i === 4 ? "col-span-2 sm:col-span-1" : ""}
+              `}
             >
-              {CATEGORY_ICONS[cat]}
-            </span>
-            <div>
-              <p className="font-display font-semibold text-sm text-[var(--color-warm-800)]">
-                {CATEGORY_LABELS[cat]}
-              </p>
-              <p className="text-[11px] text-[var(--color-warm-500)] mt-0.5">
-                {CATEGORY_DESCS[cat]}
-              </p>
-            </div>
-            <span className="
-              mt-1 text-[10px] font-semibold text-[var(--color-terra-500)]
-              opacity-0 group-hover:opacity-100 transition-opacity duration-200
-            ">
-              Lihat produk →
-            </span>
-          </Link>
-        ))}
+              {/* Image Background */}
+              <img
+                src={img}
+                alt={CATEGORY_LABELS[catKey]}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+
+              {/* Content */}
+              <div className="relative z-10 text-white flex flex-col gap-1">
+                <span className="text-2xl mb-1">{CATEGORY_ICONS[catKey]}</span>
+                <p className="font-display font-bold text-base leading-tight">
+                  {CATEGORY_LABELS[catKey]}
+                </p>
+                <p className="text-xs text-white/80 line-clamp-1">
+                  {CATEGORY_DESCS[catKey]}
+                </p>
+                <span className="mt-1 text-[11px] font-semibold text-emerald-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  Lihat Produk →
+                </span>
+              </div>
+            </Link>
+          );
+        })}
       </div>
 
       {/* CTA ke halaman katalog */}
